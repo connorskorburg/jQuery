@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover In | Hover Out</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('img').hover(function(){
+                $(this).attr('temp', $(this).attr('src'));
+                $(this).attr('src', $(this).attr('data-src-alt'));
+                $(this).attr('data-src-alt', $(this).attr('temp'));
+                $(this).addClass('light');
+            }, function(){
+                console.log('hover')
+                $(this).attr('temp', $(this).attr('data-src-alt'));
+                $(this).attr('data-src-alt', $(this).attr('src'));
+                $(this).attr('src', $(this).attr('temp'));
+                $(this).addClass('dark');
+            });
+        });
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #444;
+        }
+        .wrapper{
+            display: grid;
+            grid-gap: 10px;
+            padding: 50px;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+        img{
+            width: 300px;
+            height: 200px;
+            background-color: orange;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .light{
+            background-color: white;
+        }
+        .dark{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <img src="img/sports.jpg" data-src-alt="img/baseball.jpg">
+        <img src="img/sports.jpg" data-src-alt="img/basketball.jpg">
+        <img src="img/sports.jpg" data-src-alt="img/golf.jpg">
+        <img src="img/sports.jpg" data-src-alt="img/hockey.jpg">
+        <img src="img/sports.jpg" data-src-alt="img/lax.jpeg">
+        <img src="img/sports.jpg" data-src-alt="img/soccer.jpg">
+        <img src="img/sports.jpg" data-src-alt="img/tennis.jpg">
+        <img src="img/sports.jpg" data-src-alt="img/track.jpg">
+    </div>
+</body>
+</html>

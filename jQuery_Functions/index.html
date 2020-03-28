@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    // .click !
+    // .hide !
+    // .show !
+    // .toggle !
+    // .slideDown !
+    // .slideUp !
+    // .slideToggle !
+    // .fadeIn !
+    // .fadeOut !
+    // .addClass !
+    // .before !
+    // .after !
+    // .append !
+    // .html !
+    // .attr !
+    // .val !
+    // .text !
+    $(document).ready(function () {
+        //hide .hide onclick
+        $('button.hide').click(function () {
+            $('h1.hide').hide();
+        });
+        //show .show onclick
+        $('button.show').click(function(){
+            $('h1.show').show();
+        });
+        //toggle
+        $("button.toggle").click(function () {
+            $("h1.toggle").toggle("slow", function () {
+            });
+        });
+        //slide down
+        $("button.sld-down").click(function () {
+            $("h1.sld").slideDown(500);
+        });
+        //slide up
+        $("button.sld-up").click(function () {
+            $("h1.sld").slideUp(200);
+        });
+        //slide toggle
+        $("button.sld-tog").click(function () {
+            $("h1.sld-tog").slideToggle(300);
+        });
+        //fade in
+        $("button.fd-in").click(function () {
+            $("h1.fd").fadeIn(500);
+        });
+        //fade out
+        $("button.fd-out").click(function () {
+            $("h1.fd").fadeOut(500);
+        });
+        //add class with different background and text color
+        $('button.add-class').click(function(){
+            $('h1.add-class').addClass('bg-change');
+        });
+        //add text before 
+        $('button.before').click(function(){
+            $('p.before').before('Click');
+        });
+        //add text after
+        $('button.after').click(function(){
+            $('p.after').after('Button!');
+        });
+        //append another h1
+        $('button.app').click(function(){
+            $('p.app').append('<strong>missing a few words</strong>')
+        });
+        //Change html
+        $('button.change-html').click(function(){
+            $('p.change-html').html('<a href="http://www.google.com" target="_blank">Google</a>')
+        });
+        //change text
+        $('button.text').click(function(){
+            $('h1.text').text('Goodbye World!')
+        });
+        //add attribute
+        $('button.add-attr').click(function(){
+            $('input.add-attr').attr('placeholder','Enter your message here');
+        });
+        //val
+        $('button.val').click(function(){
+            let name = $('input.val').val();
+            alert(name);
+        });
+
+
+
+    });
+    </script>
+    <title>jQuery Functions</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family:sans-serif;
+            box-sizing: border-box;
+        }
+        #functions{
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #333;
+        }
+        .container{
+            height: 150px;
+            border-bottom: 2px solid #333;
+        } 
+        .btn {
+            display: inline-block;
+            width: 150px;
+            height: 50px;
+            vertical-align: top;
+            background-color: #333;
+            color: #fff;
+            margin: 50px 20px;
+            padding: 15px 5px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+        } 
+        button.btn{
+            cursor: pointer;
+            border: none;
+        }
+        .container h1, p, ul{
+            /* outline: 1px solid blue; */
+            display: inline-block;
+            padding: 5px;
+            height: 50px;
+            margin: 50px 0;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .container h1.sld{
+            display: none;
+        }
+        button.sld-down, button.sld-up{
+            width: 44%;
+        }
+        .bg-change{
+            background-color: blue;
+            color: #fff !important;
+        }
+        p{
+            padding-top: 15px;
+        }
+        input{
+            margin-top: 60px;
+            margin-left: 20px;
+            padding: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="functions">jQuery Functions</h1>
+    <div class="container">
+        <button href="#" class="btn hide">Click To Hide!</button>
+        <h1 class="hide show">Click the button!</h1>
+        <button href="#" class="btn show">Click To Show!</button>
+    </div>
+    <div class="container">
+        <button href="#" class="btn toggle">Click To Toggle!</button>
+        <h1 class="toggle">Click the button!</h1>
+    </div>
+    <div class="container">
+        <button href="#" class="btn sld-down">Slide Down!</button>
+        <button href="#" class="btn sld-up">Slide up!</button>
+        <h1 class="sld">Click the button!</h1>
+    </div>
+    <div class="container"></div>
+    <div class="container">
+        <button href="" class="btn sld-tog">Slide!</button>
+        <h1 class="sld-tog">Click the button!</h1>
+    </div>
+    </div>
+    <div class="container">
+        <button href="#" class="btn fd-out">Fade Out!</button>
+        <button href="#" class="btn fd-in">Fade In!</button>
+        <h1 class="fd">Click the button!</h1>
+    </div>
+    <div class="container">
+        <button class="btn add-class">Change the Color!</button>
+        <h1 class="add-class">Click the button to change the color!</h1>
+    </div>
+    <div class="container">
+        <button class="btn before">Before!</button>
+        <button class="btn after">After!</button>
+        <p class="before after">The</p>
+    </div>
+    <div class="container">
+        <button class="btn app">Click Here!</button>
+        <p class="app">I think this sentence is </p>
+    </div>
+    <div class="container">
+        <button class="btn change-html">Change HTML!</button>
+        <p class="change-html">Click the button to change me!</p>
+    </div>
+    <div class="container">
+        <button class="btn text">Change Text!</button>
+        <h1 class="text">Hello World</h1>
+    </div>
+    <div class="container">
+        <button class="btn add-attr">Add Attribute!</button>
+        <input type="text" class="add-attr">
+    </div>
+    <div class="container">
+        <button class="btn val">Click to see name!</button>
+        <input type="text" placeholder="Enter name" class="val">
+    </div>
+</body>
+</html>

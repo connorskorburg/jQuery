@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja To Cat</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('img').click(function () {
+                let dataSrc = $(this).attr('data-alt-src');
+                let src = $(this).attr('src');
+                // console.log("src:",src);
+                // console.log("das:",dataSrc);
+                for(let i = 0; i < 5; i++){
+                    if(src == `img/cat${i}.png`){
+                        $(this).attr('src',`img/ninja${i}.png`)
+                        $(this).attr('data-alt-src', `img/cat${i}.png`);
+                    }
+                    if(src == `img/ninja${i}.png`){
+                        $(this).attr('src', `img/cat${i}.png`)
+                        $(this).attr('data-alt-src', `img/ninja${i}.png`);
+                    }
+                }
+            });
+        });
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #333;
+        }
+        .wrapper{
+            padding: 50px;
+            display: grid;
+            grid-gap: 10px;
+        }
+        img{
+            grid-column: 1fr;
+            margin: 0 auto;
+            border: 2px solid #555;
+            cursor: pointer;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <img src="img/ninja0.png"  data-alt-src='cat0.png'>
+        <img src="img/cat1.png"  data-alt-src='ninja1.png'>
+        <img src="img/ninja2.png"  data-alt-src='cat2.png'>
+        <img src="img/cat3.png"  data-alt-src='ninja3.png'>
+        <img src="img/ninja4.png"  data-alt-src='cat4.png'>
+    </div>
+</body>
+</html>
